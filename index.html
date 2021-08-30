@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Fintechee CEO Mark Sea Individual Website</title>
+	<meta name="description"
+		content="Building the best Fintech trading platform is Fintechee's mission. Here we will show you Fintechee CEO's paintings." />
+	<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+	<meta property="og:title" content="Fintechee CEO Mark Sea Individual Website" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Building the best Fintech trading platform is Fintechee's mission. Here we will show you Fintechee CEO's paintings." />
+	<meta property="og:url" content="https://www.fintechee.ceo/" />
+	<meta property="og:site_name" content="Channel-Sea" />
+	<meta property="og:image" content="https://www.fintechee.ceo/images/logo.png" />
+	<meta property="og:image:secure_url" content="https://www.fintechee.ceo/logo.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:alt" content="Building the best Fintech trading platform is Fintechee's mission" />
+	<meta property="og:video" content="https://youtu.be/nrtX9cmTkWU" />
+	<meta property="og:video:secure_url" content="https://youtu.be/nrtX9cmTkWU" />
+	<meta property="og:video:width" content="1280" />
+	<meta property="og:video:height" content="720" />
+	<meta property="og:updated_time" content="2021-08-28T00:00:00+00:00" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Fintechee CEO Mark Sea Individual Website" />
+	<meta name="twitter:description" content="Building the best Fintech trading platform is Fintechee's mission. Here we will show you Fintechee CEO's paintings." />
+	<meta name="twitter:image" content="https://www.fintechee.ceo/images/logo.png" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="canonical" href="https://www.fintechee.ceo/" />
+	<style>
+		li {
+			list-style-type: none;
+			margin-bottom: 10px;
+		}
+		#maincanvas{
+			position:fixed;
+			top:0;
+			left:0;
+			padding:0;
+			margin:0;
+		}
+		a {
+			text-decoration: none;
+			color: #555555;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="canvaswrapper" style="display:block;z-index:1000">
+		<canvas id="maincanvas"></canvas>
+	</div>
+
+	<script type="text/javascript" src="/js/three/three.min.js"></script>
+	<script id="vs" type="x-shader/x-vertex">
+
+		varying vec2 vUv;
+
+		void main () {
+
+			vUv = uv;
+			gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+
+		}
+
+	</script>
+
+	<script id="fs" type="x-shader/x-fragment">
+
+		uniform sampler2D map;
+
+		uniform vec3 fogColor;
+		uniform float fogNear;
+		uniform float fogFar;
+
+		varying vec2 vUv;
+
+		void main () {
+
+			float depth = gl_FragCoord.z / gl_FragCoord.w;
+			float fogFactor = smoothstep(fogNear, fogFar, depth);
+
+			gl_FragColor = texture2D(map, vUv);
+			gl_FragColor.w *= pow(gl_FragCoord.z, 20.0);
+			gl_FragColor = mix(gl_FragColor, vec4(fogColor, gl_FragColor.w), fogFactor);
+
+		}
+
+	</script>
+	<script type="text/javascript" src="/js/cc/fintecheeceo.js">
+	</script>
+
+	<script defer>
+		window.addEventListener("resize", function () {
+			updateRenderer()
+		})
+
+		initAnim()
+	</script>
+</body>
+</html>
