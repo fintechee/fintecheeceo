@@ -4,7 +4,7 @@ var CAM_SPEED_MIN = 0.1, CAM_SPEED_MAX = 0.1, CAM_POS_TIME = 10, CAM_POS_MIN = n
     CAM_INIT_POS_Y = 100, CAM_INIT_POS_Z = 8, CAM_INIT_POS2_Y = 10, CAM_FALL_SPEED = 0.3;
 var FOG_COLOR = 0x4DABF5, SHADOW_COLOR = 0xFFFF00, CLOUD_LAYER_NUM = 20, SHADOW_LAYER_NUM = 1, CLOUD_POS_MAX = 100, SHADOW_POS_MAX = 1; // SHADOW_LAYER_NUM = 1
 var AMBIENT_LIGHT = 0x000000, DIRECTIONAL_LIGHT = 0xFFFFFF, DIRECTIONAL_LIGHT2 = 0xAAAAAA; // FFFFFF
-var GALLERY_NUM = 12, galleryTexture = [], galleryPlane = [], ROW = 3;
+var GALLERY_NUM = 16, galleryTexture = [], galleryPlane = [], ROW = 4;
 
 function updateRenderer () {
     renderer.setSize(window.innerWidth, window.innerHeight);
